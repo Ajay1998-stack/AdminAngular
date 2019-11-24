@@ -1,20 +1,6 @@
 {
   "bikes": [
     {
-      "id": 3,
-      "availability": "Hyd",
-      "regno": 19,
-      "comments": "H",
-      "station": "dadfga"
-    },
-    {
-      "id": 5,
-      "availability": "Hydrogen",
-      "regno": 1534,
-      "comments": "H",
-      "station": "afga"
-    },
-    {
       "id": 10,
       "regno": "1234",
       "station": "fagg",
@@ -58,9 +44,9 @@
       "id": 16
     },
     {
-      "regno": "121",
-      "station": "dFDFDF",
-      "comments": "adf",
+      "regno": "12",
+      "station": "sfa",
+      "comments": "adfaa",
       "availability": "available",
       "id": 17
     }

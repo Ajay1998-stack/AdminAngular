@@ -11,4 +11,35 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+
+  th {
+    background-color:	#4267B2;
+    color: white;
+  }
+  
+  .mat-header-cell{
+    font-style: monospace;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  tr:nth-child(even) {background-color: #FFDEAD}
+
+  tr:hover {background-color: #f0f0f0;}
+
+  #add_button{
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+  }
+
+  #Search{
+    width: 60%;
+    margin-left: 150px;
+  }
+  
+  
+
   
