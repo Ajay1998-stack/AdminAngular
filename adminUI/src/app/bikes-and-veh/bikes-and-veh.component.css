@@ -4,6 +4,7 @@ table {
   }
   
   .mat-form-field {
+    font-family: Quicksand;
     font-size: 14px;
     width: 100%;
   }
@@ -21,6 +22,7 @@ table {
     font-style: monospace;
     font-weight: bold;
     font-size: 14px;
+    font-family: Quicksand;
   }
 
   tr:nth-child(even) {background-color: #FFDEAD}
@@ -33,6 +35,7 @@ table {
     margin-top: 10px;
     margin-bottom: 10px;
     float: right;
+    font-family: Quicksand;
   }
 
   #Search{

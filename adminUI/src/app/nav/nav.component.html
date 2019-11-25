@@ -1,62 +1,22 @@
 <!DOCTYPE html>
 <html>
-    
-
-
-<head>
-    ​
-    <style>
-        .head1 {
-            font-size: 40px;
-            color: #4267B2;
-            font-weight: bold;
-            font-family: impact;
-        }
-
-        .head2 {
-            font-size: 17px;
-            margin-left: 10px;
-            color: black;
-        }
-
-        #user-form-field {
-            margin-top: 100px;
-            margin-left: 150px;
-        }
-
-        #bike-form-field {
-            margin-top: 100px;
-            margin-left: 150px;
-        }
-
-        .mat-tab {
-            color: #009900;
-        }
-
-        .button {
-            padding-left: 10px;
-            color: #009900;
-        }
-    </style>
-</head>
 <header>
     <div class="head1">Bool</div>
     <div class="head2">The Bike Service</div>
 </header>
 
-
 <body>​
-        <div class="w3-row">
-    <mat-tab-group mat-stretch-tabs>
-        <mat-tab label="Find User" > Content </mat-tab>
-        <mat-tab label="Bikes and Vehicles">
-            <app-bikes-and-veh></app-bikes-and-veh>
-        </mat-tab>
-        <mat-tab label="Pending Approvals">
-            <app-approvals></app-approvals>
-        </mat-tab>
-    </mat-tab-group>
-</div>
+    <div class="w3-row">
+        <mat-tab-group mat-stretch-tabs>
+            <mat-tab label=" Find User "> Content </mat-tab>
+            <mat-tab label=" Bikes and Vehicles ">
+                <app-bikes-and-veh></app-bikes-and-veh>
+            </mat-tab>
+            <mat-tab label=" Pending Approvals ">
+                <app-approvals></app-approvals>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
 </body>
 
 </html>
