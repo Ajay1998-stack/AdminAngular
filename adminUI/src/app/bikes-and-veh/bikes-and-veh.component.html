@@ -24,14 +24,14 @@
     <td mat-cell *matCellDef="let element"> {{element.regno}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="availability">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Availability </th>
-    <td mat-cell *matCellDef="let element"> {{element.availability}} </td>
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="comments">
+  <ng-container matColumnDef="feedbackOrComments">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
-    <td mat-cell *matCellDef="let element"> {{element.comments}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.feedbackOrComments}} </td>
   </ng-container>
 
   <ng-container matColumnDef="station">
