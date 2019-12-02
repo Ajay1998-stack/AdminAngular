@@ -14,9 +14,8 @@ export class BikesAndVehComponent implements OnInit {
 
   bikes = [];
   bikesBehaviour: BehaviorSubject<any>
-  id: number;
   res: HttpResponse<any>;
-  displayedColumns: string[] = ['id', 'regno', 'status', 'feedbackOrComments', 'station', 'actions'];
+  displayedColumns: string[] = ['id', 'status', 'feedbackOrComments', 'station', 'actions'];
   dataSource: MatTableDataSource<any>;
   private headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -52,7 +51,7 @@ export class BikesAndVehComponent implements OnInit {
   }
   removeBike = function (id: Number) {
     if (confirm("Are you sure?")) {
-      return this.assetManagementService.deleteAsset(id).toPromise()
+      return this.assetService.deleteAsset(id).toPromise()
         .then(() => {
           this.fetchData();
         }

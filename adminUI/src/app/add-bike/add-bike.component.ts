@@ -22,11 +22,11 @@ export class AddBikeComponent implements OnInit {
 
   addNewBike(bike) {
     this.bikeObj = {
-      // id: (new Date().valueOf()),
-      regno: bike.regno,
+      // id: (new Date().valueOf()/100),
+      id: bike.regno,
       station: bike.station,
       feedbackOrComments: bike.comments,
-      status: bike.status,
+      status: 'available',
       charge: 0,
       username: "null",
       initMeterReading: 0,

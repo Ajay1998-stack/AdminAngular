@@ -4,14 +4,12 @@ import { Observable } from 'rxjs';
 
 export interface AssetData{
   id: number;
-  regno: number;
   status: string;
   feedbackOrComments: string;
   station: string;
 }
 
 export interface Vehicle{
-  // id:number;
   charge:number;
   username:string;
   initMeterReading:number;
@@ -20,7 +18,7 @@ export interface Vehicle{
   initTime:number;
   dropTime:number;
   totalDistance:number;
-  regno:number;
+  id:number;
   station:string;
   feedbackOrComments:string;
   status: string;
@@ -42,7 +40,7 @@ export class AssetManagementService {
   }
 
   postAsset(vehicle: Vehicle): Observable<any>{
-    let body = {vehicle};
-    return this.http.post("http://localhost:8085/api/v1/asset", body);
+    // let body = {vehicle};
+    return this.http.post("http://localhost:8085/api/v1/asset/",vehicle);
   }
 }
