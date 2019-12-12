@@ -1,0 +1,57 @@
+<mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="regNo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Reg No </th>
+                <td mat-cell *matCellDef="let row"> {{row.regNo}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="bookingID">
+                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Booking Id </th>
+                <td mat-cell *matCellDef="let row"> {{row.bookingID}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="userName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
+               <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+           </ng-container>
+    
+            <ng-container matColumnDef="initTime">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Init time </th>
+                    <td mat-cell *matCellDef="let row"> {{row.initTime}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dropTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Drop Time </th>
+                <td mat-cell *matCellDef="let row"> {{row.dropTime}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="initMeterReading">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Initial Meter Reading </th>
+                <td mat-cell *matCellDef="let row"> {{row.initMeterReading}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="finalMeterReading">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Final Meter Reading </th>
+                <td mat-cell *matCellDef="let row"> {{row.finalMeterReading}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="feedbackOrComments">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
+                <td mat-cell *matCellDef="let row"> {{row.feedbackOrComments}} </td>
+            </ng-container>
+    
+    
+            <ng-container matColumnDef="station">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Station</th>
+                <td mat-cell *matCellDef="let row"> {{row.station}} </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>   
+    </div>

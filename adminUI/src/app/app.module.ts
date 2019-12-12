@@ -51,13 +51,15 @@ import {HttpClientModule,HttpResponse} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { AddBikeComponent } from './add-bike/add-bike.component';
 import { FormsModule }   from '@angular/forms';
+import { BikeHistoryComponent } from './bike-history/bike-history.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     BikesAndVehComponent,
     ApprovalsComponent,
-    AddBikeComponent
+    AddBikeComponent,
+    BikeHistoryComponent
   ],
   imports: [ 
     BrowserModule,

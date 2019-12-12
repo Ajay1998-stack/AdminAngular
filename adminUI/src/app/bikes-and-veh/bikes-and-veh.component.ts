@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { AssetManagementService } from '../shared/asset-management.service';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-bikes-and-veh',
@@ -15,10 +16,14 @@ export class BikesAndVehComponent implements OnInit {
   bikes = [];
   bikesBehaviour: BehaviorSubject<any>
   res: HttpResponse<any>;
-  displayedColumns: string[] = ['id', 'status', 'feedbackOrComments', 'station', 'actions'];
-  dataSource: MatTableDataSource<any>;
+  displayedColumns: string[] = ['regNo', 'status', 'feedbackOrComments', 'station', 'actions'];
+  
+  dataSource: any;
+
   private headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+  
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  
   constructor(private http: HttpClient, private assetService: AssetManagementService) {
     this.bikesBehaviour = new BehaviorSubject<any>(this.bikes);
   }
@@ -26,32 +31,35 @@ export class BikesAndVehComponent implements OnInit {
   ngOnInit() {
     this.fetchData();
 
+    this.assetService.connect();
+
     this.bikesBehaviour.subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = data;
       this.dataSource.sort = this.sort;
     })
+    this.assetService.bikesData.subscribe((data) => {
+        console.log(data);
+        console.log(JSON.parse(data))
+        data = JSON.parse(data)
+        this.dataSource = this.dataSource.filter(e => e.regNo !== data.regNo);
+        this.dataSource.unshift(data)
+    });
   }
 
+
   fetchData = function () {
-    // this.http.get("http://localhost:3000/bikes").subscribe(
-    //   res =>{
-    //     console.log(res);
-    //     this.bikesBehaviour.next(res);
-    //     console.log("inside component : ",this.bikes); 
-    //   }
-    // )
     this.assetService.getAssetData().subscribe((data) => {
       this.bikesBehaviour.next(data);
-      console.log("inside component : ",data); 
+      console.log("inside component : ", data);
     });
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  removeBike = function (id: Number) {
+  removeBike = function (regNo: String) {
     if (confirm("Are you sure?")) {
-      return this.assetService.deleteAsset(id).toPromise()
+      return this.assetService.deleteAsset(regNo).toPromise()
         .then(() => {
           this.fetchData();
         }

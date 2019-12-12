@@ -19,9 +19,9 @@
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="regno">
+  <ng-container matColumnDef="regNo">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> RegNo </th>
-    <td mat-cell *matCellDef="let element"> {{element.regno}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.regNo}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
@@ -41,7 +41,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let element">
-      <button type="button" class="btn btn-danger" mat-button (click)=" removeBike(element.id)">Remove</button>
+      <button type="button" class="btn btn-danger" mat-button (click)=" removeBike(element.regNo)">Remove</button>
     </td>
   </ng-container>
 
