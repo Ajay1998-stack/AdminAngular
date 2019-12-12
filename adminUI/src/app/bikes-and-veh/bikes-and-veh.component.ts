@@ -38,11 +38,10 @@ export class BikesAndVehComponent implements OnInit {
       this.dataSource.sort = this.sort;
     })
     this.assetService.bikesData.subscribe((data) => {
-        console.log(data);
         console.log(JSON.parse(data))
         data = JSON.parse(data)
         this.dataSource = this.dataSource.filter(e => e.regNo !== data.regNo);
-        this.dataSource.unshift(data)
+        this.dataSource.unshift(data);
     });
   }
 

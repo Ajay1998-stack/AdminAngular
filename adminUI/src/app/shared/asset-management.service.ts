@@ -55,15 +55,16 @@ export class AssetManagementService {
   topic: string = "/topic/adminUI";
   stompClient: any;
   bikesData: Subject<any>;
+  bikesHistory: Subject<any>;
 
 
-  webSocketEndPoint2: string = 'http://localhost:8085/assetHis';
-  topic2: string = "/topic/History";
+  topic2: string = "/topic/history";
   stompClient2: any;
   bikesData2: Subject<any>;
 
   constructor(private http: HttpClient) { 
     this.bikesData = new Subject<any>();
+    this.bikesHistory = new Subject<any>();
   }
 
   connect() {
@@ -78,6 +79,7 @@ export class AssetManagementService {
       });
       _this.stompClient.subscribe(_this.topic2, function (sdkEvent) {
         console.log(sdkEvent.body);
+        _this.bikesHistory.next(sdkEvent.body);  
       });
       //_this.stompClient.reconnect_delay = 2000;
     },(error) => {

@@ -30,18 +30,16 @@ export class BikeHistoryComponent implements OnInit {
       this.bikesBehaviour2.next(data);
       console.log("inside component : ", data);
     });
-
-    this.assetHisService.connect();
-
     this.bikesBehaviour2.subscribe(data => {
       this.dataSource = data;
       this.dataSource.sort = this.sort;
     })
 
-    this.assetHisService.bikesData.subscribe((data) => {
-        console.log(data);
-        console.log(JSON.parse(data))
-        data = JSON.parse(data)
-    });
+    this.assetHisService.bikesHistory.subscribe((data) => {
+      console.log(JSON.parse(data))
+      data = JSON.parse(data)
+      this.dataSource = this.dataSource.filter(e => e.regNo !== data.regNo);
+      this.dataSource.unshift(data);
+  });
   }
 }
